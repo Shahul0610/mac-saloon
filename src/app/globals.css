@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+a, button, [role="button"], select, input[type="checkbox"], .interactive {
+  @apply transition-transform duration-300;
+}
+
+a:hover, button:hover:not(:disabled), [role="button"]:hover {
+  transform: scale(1.02);
+}
+
+.interactive-card {
+  @apply transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-white/5 hover:border-white/40;
+}
+
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+  
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+}
+
+:root {
+  /* Default Luxury Dark Theme */
+  --background: #000000;
+  --foreground: #ffffff;
+  
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  
+  --secondary: #171717;
+  --secondary-foreground: #ffffff;
+  
+  --muted: #171717;
+  --muted-foreground: #a3a3a3;
+  
+  --accent: #171717;
+  --accent-foreground: #ffffff;
+  
+  --destructive: #ffffff;
+  --destructive-foreground: #000000;
+  
+  --border: #262626;
+  --input: #262626;
+  --ring: #ffffff;
+}
+
+/* Optional Light Mode if requested, but defaulting to Dark for Premium feel */
+.light {
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #000000;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #000000;
+  --destructive: #000000;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #000000;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-white selection:text-black;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+.page-transition {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.glass {
+  @apply bg-black/70 backdrop-blur-md border border-white/10;
+}
+
+.btn-luxury {
+  @apply relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium transition-all bg-white text-black hover:bg-black hover:text-white border border-white duration-300 ease-out uppercase tracking-[0.2em] font-light;
+}
+
+.btn-luxury-outline {
+  @apply relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium transition-all bg-transparent text-white border border-white hover:bg-white hover:text-black duration-300 ease-out uppercase tracking-[0.2em] font-light;
+}
+
+/* Custom Scrollbar for Luxury Feel */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+/* React Day Picker Dark Theme */
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #ffffff;
+  --rdp-background-color: #171717;
+  --rdp-accent-color-foreground: #000000;
+  --rdp-outline: 1px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 2px solid var(--rdp-accent-color);
+  margin: 1em;
+}
+
+.rdp-day_selected, 
+.rdp-day_selected:focus-visible, 
+.rdp-day_selected:hover {
+  background-color: var(--rdp-accent-color);
+  color: var(--rdp-accent-color-foreground);
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-day_today {
+  font-weight: bold;
+  color: var(--rdp-accent-color);
+  text-decoration: underline;
+}
+
