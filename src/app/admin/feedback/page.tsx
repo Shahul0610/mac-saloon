@@ -52,7 +52,7 @@ export default function FeedbackManagement() {
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 
-                      className={`w-3 h-3 ${i < t.rating ? "fill-foreground text-transparent" : "text-muted"}`} 
+                      className={`w-3 h-3 ${i < (t.rating ?? 0) ? "fill-foreground text-transparent" : "text-muted"}`} 
                     />
                   ))}
                 </div>
@@ -64,7 +64,7 @@ export default function FeedbackManagement() {
               <div className="flex items-center space-x-4">
                 <span className="text-[10px] uppercase tracking-widest font-bold">{t.customer_name}</span>
                 <span className="text-[10px] uppercase tracking-widest font-light text-muted-foreground italic">
-                  {new Date(t.created_at).toLocaleDateString()}
+                  {t.created_at ? new Date(t.created_at).toLocaleDateString() : 'N/A'}
                 </span>
               </div>
             </div>
